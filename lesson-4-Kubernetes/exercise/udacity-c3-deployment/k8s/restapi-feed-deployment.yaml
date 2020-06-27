@@ -1,0 +1,60 @@
+
+
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  labels:
+
+    service: udacity-restapi-feed
+
+  name: udacity-restapi-feed
+
+spec:
+
+  replicas: 1
+
+  selector: 
+    matchLabels:
+      app: udacity-restapi-feed
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: udacity-restapi-feed
+
+    spec:
+
+      containers:
+
+      - image: timn9408/udacity-restapi-feed
+
+        name: udacity-restapi-feed
+
+        imagePullPolicy: Always          
+
+        resources:
+
+          requests:
+
+            memory: "64Mi"
+
+            cpu: "250m"
+
+          limits:
+
+            memory: "1024Mi"
+
+            cpu: "500m"       
+
+        ports:
+
+        - containerPort: 8080
+
+      restartPolicy: Always
+

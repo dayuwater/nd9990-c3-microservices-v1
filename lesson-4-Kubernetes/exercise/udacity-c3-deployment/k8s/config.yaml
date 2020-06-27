@@ -1,0 +1,15 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: C:\Users\timmy\EKS\ca.crt
+    server: https://411E5F1AC9F811ED8E705E50A46A5574.sk1.us-east-2.eks.amazonaws.com
+  name: eks-udagram
+contexts:
+- context:
+    cluster: eks-udagram
+    user: ""
+  name: eks-udagram
+current-context: eks-udagram
+kind: Config
+preferences: {}
+users: null

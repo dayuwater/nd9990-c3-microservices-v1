@@ -1,0 +1,60 @@
+
+
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  labels:
+
+    service: udacity-frontend
+
+  name: udacity-frontend
+
+spec:
+
+  replicas: 1
+
+  selector: 
+    matchLabels:
+      app: udacity-frontend
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: udacity-frontend
+
+    spec:
+
+      containers:
+
+      - image: timn9408/udacity-frontend
+
+        name: udacity-frontend
+
+        imagePullPolicy: Always          
+
+        resources:
+
+          requests:
+
+            memory: "64Mi"
+
+            cpu: "250m"
+
+          limits:
+
+            memory: "1024Mi"
+
+            cpu: "500m"       
+
+        ports:
+
+        - containerPort: 80
+
+      restartPolicy: Always
+

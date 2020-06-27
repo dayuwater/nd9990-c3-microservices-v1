@@ -1,0 +1,60 @@
+
+
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  labels:
+
+    service: udacity-restapi-user
+
+  name: udacity-restapi-user
+
+spec:
+
+  replicas: 1
+
+  selector: 
+    matchLabels:
+      app: udacity-restapi-user
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: udacity-restapi-user
+
+    spec:
+
+      containers:
+
+      - image: timn9408/udacity-restapi-user
+
+        name: udacity-restapi-user
+
+        imagePullPolicy: Always          
+
+        resources:
+
+          requests:
+
+            memory: "64Mi"
+
+            cpu: "250m"
+
+          limits:
+
+            memory: "1024Mi"
+
+            cpu: "500m"       
+
+        ports:
+
+        - containerPort: 8080
+
+      restartPolicy: Always
+
