@@ -8,4 +8,4 @@ before install:
  
   
 install:
-  - docker-compose -f docker-compose-build.yaml build --parallel
+  - docker-compose -f lesson-3-Container/exercises/udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel
